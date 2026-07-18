@@ -18,3 +18,4 @@
 - i learned about states, props, array deconstruction, and began to build a structure that will reveal a popup once the button click causes a state change
 - i built a basic controlled React form. user input is captured through event handlers, stored in component state using `useState`, and the input fields are bound to that state through the value prop. as the user types, React re-renders the component with the updated state.
 - i created a types folder to hold the interfaces that i will import where needed, just `src/types/AgoraEvent.ts` for now.
+- the `eventItems` array state now lives in `App.tsx`, making App responsible for storing the list of created events. Inside the `EventForm` component, `handleSubmit` runs when the event creation form is submitted and creates a new event object. `EventForm` then uses a function passed down from `App` as a prop to send the new event object back to `App`, where it is added to the `eventItems` array.
