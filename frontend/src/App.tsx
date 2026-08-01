@@ -1,9 +1,10 @@
 import { useState } from "react";
-import type { AgoraEvents } from "./types/AgoraEvent";
+import type { AgoraEvents } from "./types/AgoraEvent.ts";
 
-import "./styles.css";
-import Header from "./Header.tsx";
-import EventForm from "./EventForm.tsx";
+import "./styles/global.css"
+import CreateEventModal from "./components/EventForm/CreateEventModal.tsx";
+import Sidebar from "./components/Sidebar/Sidebar.tsx";
+import Library from "./components/pages/Library/Library.tsx";
 
 function App() {
   
@@ -15,17 +16,22 @@ function App() {
   }
 
   return (
-    <>
-      <Header />
+    <div className="layout">
+      <Sidebar onCreate = {() => setIsEventFormOpen(!isEventFormOpen)} />
 
-      <button onClick={()=>setIsEventFormOpen(true)}>Create New Event</button>
+      <main className="page-body">
+        
+          {isEventFormOpen && <CreateEventModal 
+            onClose={() => setIsEventFormOpen(false)}
+            onCreateEvent = {createEvent}/>}
+          
+          <Library 
+            eventList = {eventItems}
+            onCreate = {() => setIsEventFormOpen(!isEventFormOpen)}
+          />
+      </main>
 
-      {isEventFormOpen && <EventForm 
-      onClose={() => setIsEventFormOpen(false)}
-      onCreateEvent={createEvent}
-      />}
-
-    </>
+    </div>
   );
 }
 

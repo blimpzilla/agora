@@ -1,0 +1,57 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.45)
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+
+    width: 550px;
+    min-width:fit-content;
+    padding: 24px;
+    gap: 1rem;
+
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2)
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px
+}
+
+.modal label {
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.modal input {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    padding: 8px 12px;
+    box-sizing: border-box;
+
+    font: inherit;
+}
+
+.modal-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+
+    gap: 16px;
+    margin: 1.5rem 0 0 0
+}
