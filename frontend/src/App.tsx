@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { AgoraEvents } from "./types/AgoraEvent.ts";
+import type { AgoraEvent } from "./types/AgoraEvent.ts";
 
 import "./styles/global.css"
 import CreateEventModal from "./components/EventForm/CreateEventModal.tsx";
@@ -9,9 +9,9 @@ import Library from "./components/pages/Library/Library.tsx";
 function App() {
   
   const [isEventFormOpen, setIsEventFormOpen] = useState(false);
-  const [eventItems, setEventItems] = useState<AgoraEvents[]>([]);
+  const [eventItems, setEventItems] = useState<AgoraEvent[]>([]);
 
-  function createEvent(newEvent: AgoraEvents) {
+  function createEvent(newEvent: AgoraEvent) {
     setEventItems([...eventItems, newEvent])
   }
 

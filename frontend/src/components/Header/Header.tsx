@@ -1,16 +1,16 @@
 import "./Header.css"
 type HeaderProps = {
-    Title: String;
-    Subtitle: String
+    title: string;
+    subtitle: string;
     onCreate: ()=>void;
 }
 
-function Header( { Title, Subtitle, onCreate }: HeaderProps ) {
+function Header( { title, subtitle, onCreate }: HeaderProps ) {
     return (
       <header className="header-container">
         <div className="header-content">
-          <h1> { Title } </h1>
-          <span className="subheading"> { Subtitle } </span>
+          <h1> { title } </h1>
+          <span className="subheading"> { subtitle } </span>
         </div>
   
         <div className="header-button-container">

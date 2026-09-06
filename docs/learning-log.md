@@ -1,6 +1,6 @@
 # Learning Log
 
-## July 16
+## Milestone 1
 
 ### problems encountered
 - accidentally added project files before branching
@@ -19,3 +19,14 @@
 - i built a basic controlled React form. user input is captured through event handlers, stored in component state using `useState`, and the input fields are bound to that state through the value prop. as the user types, React re-renders the component with the updated state.
 - i created a types folder to hold the interfaces that i will import where needed, just `src/types/AgoraEvent.ts` for now.
 - the `eventItems` array state now lives in `App.tsx`, making App responsible for storing the list of created events. Inside the `EventForm` component, `handleSubmit` runs when the event creation form is submitted and creates a new event object. `EventForm` then uses a function passed down from `App` as a prop to send the new event object back to `App`, where it is added to the `eventItems` array.
+
+
+## Milestone 2
+### problems encountered
+- i need to build a proper stater `.css` style for the application
+- i need to create a table interface for in the Libray page
+- i need to create page routing in the pages (currently learning how to do so)
+
+### what i learned
+- i put together a simple set, though right now disorganized, of `css` stylesheets for each of the main components and organized those components in their respective folders. it was helpful seeing how important this becomes as a project grows.
+- 

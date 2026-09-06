@@ -1,15 +1,10 @@
 import "./CreateEventModal.css"
 import { useState } from "react";
-import type { AgoraEvents } from "@/types/AgoraEvent";
+import type { AgoraEvent } from "@/types/AgoraEvent";
 
 type EventFormProps = {
   onClose: () => void;
-  onCreateEvent: (newEvent: AgoraEvents) => void;
-};
-
-type CreateEventModal = {
-  onClose: () => void;
-  onCreateEvent: (newEvent: AgoraEvents) => void;
+  onCreateEvent: (newEvent: AgoraEvent) => void;
 };
 
 function CreateEventModal({ onClose, onCreateEvent }: EventFormProps) {
@@ -22,12 +17,13 @@ function CreateEventModal({ onClose, onCreateEvent }: EventFormProps) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const newEventItem: AgoraEvents = {
+    const newEventItem: AgoraEvent = {
       id: Date.now(),
       name: eventName,
       date: eventDate
     }
     onCreateEvent(newEventItem);
+    onClose();
     {setEventName(""), setEventDate("")};
   }
 
@@ -57,12 +53,12 @@ function CreateEventModal({ onClose, onCreateEvent }: EventFormProps) {
             name="eventDate"
             type="date"
             // placeholder={String(Date.now())}
-            onChange={(e)=>setEventName(e.target.value)}
+            onChange={(e)=>setEventDate(e.target.value)}
             required
           />
 
           <div className="modal-button-container">
-            <button className="button-secondary" onClick={onClose}>Cancel</button>
+            <button type="button" className="button-secondary" onClick={onClose}>Cancel</button>
            <button className="primary-button" type="submit">Create event</button>
           </div>
 
