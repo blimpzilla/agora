@@ -1,0 +1,94 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.modal {
+  display: flex;
+  width: 748px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+
+  width: 550px;
+  min-width: fit-content;
+  padding: 24px;
+  gap: 1rem;
+
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.modal label {
+  font-weight: 500;
+}
+
+.modal input {
+  display: flex;
+  padding: 8px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  font: inherit;
+}
+
+.hstack {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 8px 32px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.hstack-s {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.modal-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+
+  gap: 16px;
+  margin: 1.5rem 0 0 0;
+}

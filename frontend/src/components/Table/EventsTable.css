@@ -1,0 +1,66 @@
+.events-table {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  color: #212121;
+}
+
+.events-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.events-table th,
+.events-table td {
+  padding: 0.875rem 1rem;
+  vertical-align: middle;
+}
+
+.events-table thead {
+  background: #fafafa;
+}
+
+.events-table th {
+  color: #666;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.events-table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.events-table tbody tr:last-child {
+  border-bottom: 0;
+}
+
+.events-table tbody tr {
+  transition: background-color 150ms ease;
+}
+
+.events-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.events-table td:first-child {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.events-table td:last-child {
+  color: #666;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events-table tbody tr {
+    transition: none;
+  }
+}

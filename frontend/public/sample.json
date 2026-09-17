@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Africa Health Tech Summit",
+    "date": {
+      "start": "2026-09-22",
+      "end": "2026-09-24"
+    },
+    "city": "Kigali",
+    "country": "Rwanda",
+    "status": "Upcoming",
+    "category": "Conference"
+  },
+  {
+    "id": 2,
+    "name": "Ottawa Startup Mixer",
+    "date": {
+      "start": "2026-10-03",
+      "end": "2026-10-03"
+    },
+    "city": "Ottawa",
+    "country": "Canada",
+    "status": "Upcoming",
+    "category": "Networking"
+  },
+  {
+    "id": 3,
+    "name": "Dynamik Africa Strategy Workshop",
+    "date": {
+      "start": "2026-10-14",
+      "end": "2026-10-15"
+    },
+    "city": "Toronto",
+    "country": "Canada",
+    "status": "Upcoming",
+    "category": "Workshop"
+  },
+  {
+    "id": 4,
+    "name": "Canadian Tech Leadership Forum",
+    "date": {
+      "start": "2026-11-06",
+      "end": "2026-11-08"
+    },
+    "city": "Montreal",
+    "country": "Canada",
+    "status": "Upcoming",
+    "category": "Conference"
+  },
+  {
+    "id": 5,
+    "name": "Summer Founder Meetup",
+    "date": {
+      "start": "2026-08-12",
+      "end": "2026-08-12"
+    },
+    "city": "Gatineau",
+    "country": "Canada",
+    "status": "Completed",
+    "category": "Networking"
+  },
+  {
+    "id": 6,
+    "name": "Digital Transformation Roundtable",
+    "date": {
+      "start": "2026-07-28",
+      "end": "2026-07-28"
+    },
+    "city": "Virtual",
+    "country": "Online",
+    "status": "Completed",
+    "category": "Roundtable"
+  },
+  {
+    "id": 7,
+    "name": "East Africa Investment Forum",
+    "date": {
+      "start": "2026-11-19",
+      "end": "2026-11-21"
+    },
+    "city": "Nairobi",
+    "country": "Kenya",
+    "status": "Upcoming",
+    "category": "Forum"
+  },
+  {
+    "id": 8,
+    "name": "Agora Product Demo",
+    "date": {
+      "start": "2026-09-30",
+      "end": "2026-09-30"
+    },
+    "city": "Virtual",
+    "country": "Online",
+    "status": "Upcoming",
+    "category": "Internal"
+  },
+  {
+    "id": 9,
+    "name": "Partnership Development Session",
+    "date": {
+      "start": "2026-06-18",
+      "end": "2026-06-19"
+    },
+    "city": "Ottawa",
+    "country": "Canada",
+    "status": "Completed",
+    "category": "Workshop"
+  },
+  {
+    "id": 10,
+    "name": "Innovation in Healthcare Forum",
+    "date": {
+      "start": "2027-01-21",
+      "end": "2027-01-23"
+    },
+    "city": "Vancouver",
+    "country": "Canada",
+    "status": "Upcoming",
+    "category": "Forum"
+  }
+]

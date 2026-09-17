@@ -28,9 +28,7 @@ function Sidebar({ onCreate }: SidebarProps) {
       <div className="sidebar-menu">
         <button className="sidebar-menu-item" onClick={onCreate}>
           <CalendarPlus className="sidebar-icon" />
-          <span className="sidebar-menu-item__label">
-            Create New Event
-          </span>
+          <span className="sidebar-menu-item__label">Create New Event</span>
         </button>
 
         <button className="sidebar-menu-item --active">

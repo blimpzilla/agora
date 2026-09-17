@@ -101,13 +101,15 @@ The application should be able to display a useful message when for example ther
 
 Initially the expected structure is:
 
-    React/Typescript frontend
-            ↓
-        HTTP request
-            ↓
-    Java Spring Boot API
-            ↓
-        PostgreSQL
+```
+React/Typescript frontend
+        ↓
+    HTTP request
+        ↓
+Java Spring Boot API
+        ↓
+    PostgreSQL
+```
 
 The frontend will provide the user with an interface
 
@@ -196,7 +198,7 @@ Learning goals:
 
 ### Milestone 5
 
-Containerization. I will learn how to the frontend, backend, and databse useing Docker.
+Containerization. I will learn how to the frontend, backend, and database useing Docker.
 
 Learning goals:
 
