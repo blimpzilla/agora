@@ -1,17 +1,5 @@
 # Agora Project Scope
 
-## Status
-
-Proposed
-
-## Date
-
-July 15, 2026
-
-## Project Name
-
-Agora
-
 ## Project Summary
 
 Agora is a full stack event organization application that I will build incrementally between July and September.
@@ -103,12 +91,12 @@ Initially the expected structure is:
 
 ```
 React/Typescript frontend
-        ↓
-    HTTP request
-        ↓
-Java Spring Boot API
-        ↓
-    PostgreSQL
+           ↓
+      HTTP request
+           ↓
+   Node / Express API
+           ↓
+       PostgreSQL
 ```
 
 The frontend will provide the user with an interface
@@ -117,7 +105,7 @@ The backend will receive requests, apply application rules, and communicate with
 
 PostgreSQL will store the data
 
-**This structure may change if I encounter a way approach along the way but each decision will be documented.**
+**This structure may change if I encounter a way approach along the way.**
 
 ## Initial Event Model
 

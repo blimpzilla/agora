@@ -86,5 +86,3 @@ docs/              Project scope and learning log
 ## Project Scope
 
 The project scope, milestones, constraints, and learning objectives are documented in [`docs/project-scope.md`](docs/project-scope.md).
-
-Development notes and lessons learned are recorded in [`docs/learning-log.md`](docs/learning-log.md).

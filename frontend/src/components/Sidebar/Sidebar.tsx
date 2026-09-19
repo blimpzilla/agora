@@ -12,13 +12,14 @@ type SidebarProps = {
 };
 
 const accountName = "Blimpmeister";
-const accountImgSrc = "../public/IMG_1637.JPG";
+const accountImgSrc = "/IMG_1637.JPG";
+const wordMark = "/wordmark.svg";
 
 function Sidebar({ onCreate }: SidebarProps) {
   return (
     <nav className="sidebar">
       <div className="sidebar-header">
-        <span className="sidebar-brandmark">agora</span>
+        <img src={wordMark} alt="Project wordmark logo" height="20px" />
 
         <div className="sidebar-toggle-button">
           <PanelRightOpen />

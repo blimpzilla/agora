@@ -1,0 +1,15 @@
+[
+  {
+    "id": 17492,
+    "eventName": "Ottawa Tech Networking Night",
+    "startDate": "2026-10-08",
+    "startTime": "18:30",
+    "endDate": "2026-10-08",
+    "endTime": "21:00",
+    "allDay": false,
+    "eventLocation": "Bayview Yards, Ottawa, Canada",
+    "eventOrganizer": "Capital Tech Collective",
+    "eventNotes": "Networking event for students, developers, founders, and local tech professionals.",
+    "eventUrl": "https://example.com/events/ottawa-tech-networking-night"
+  }
+]
