@@ -11,5 +11,18 @@
     "eventOrganizer": "Capital Tech Collective",
     "eventNotes": "Networking event for students, developers, founders, and local tech professionals.",
     "eventUrl": "https://example.com/events/ottawa-tech-networking-night"
+  },
+  {
+    "id": 1790304974115,
+    "eventName": "Test 2",
+    "startDate": "2026-09-25",
+    "startTime": "",
+    "endDate": "",
+    "endTime": "",
+    "allDay": false,
+    "eventLocation": "",
+    "eventOrganizer": "",
+    "eventNotes": "",
+    "eventUrl": ""
   }
 ]

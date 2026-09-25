@@ -12,3 +12,16 @@ export interface AgoraEvent {
   eventNotes: string;
   eventUrl: string;
 }
+
+export interface NewAgoraEvent {
+  eventName: string;
+  startDate: string;
+  startTime: string;
+  endDate: string;
+  endTime: string;
+  allDay: boolean;
+  eventLocation: string;
+  eventOrganizer: string;
+  eventNotes: string;
+  eventUrl: string;
+}

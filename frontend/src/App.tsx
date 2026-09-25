@@ -14,7 +14,7 @@ function App() {
     console.log("useEffect now running");
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/events");
+        const response = await fetch("http://localhost:3000/api/events");
         if (!response.ok) {
           throw `Error status: ${response.status}`;
         }

@@ -22,7 +22,9 @@ function CreateEventModal({ onClose, onCreateEvent }: CreateEventModalProps) {
   const [eventNotes, setEventNotes] = useState("");
   const [eventUrl, setEventUrl] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const [errors, setErrors] = useState<string[]>([]);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const newEventItem: AgoraEvent = {
@@ -38,22 +40,45 @@ function CreateEventModal({ onClose, onCreateEvent }: CreateEventModalProps) {
       eventNotes: eventNotes,
       eventUrl: eventUrl,
     };
-    onCreateEvent(newEventItem);
 
-    onClose();
+    const postEvent = async (newEventItem: AgoraEvent) => {
+      try {
+        const response = await fetch("http://localhost:3000/api/events", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newEventItem),
+        });
+        if (response.ok) {
+          onCreateEvent(newEventItem);
+          onClose();
+          (setEventName(""),
+            setStartDate(""),
+            setStartTime(""),
+            setEndDate(""),
+            setEndTime(""),
+            setAllDay(false),
+            setEventLocation(""),
+            setEventOrganizer(""),
+            setEventNotes(""),
+            setEventUrl(""));
+        } else {
+          const data = await response.json();
+          setErrors(data.errors);
+          console.log(data.errors);
+          return;
+        }
+      } catch (error) {
+        if (error instanceof Error) {
+          console.error(`Error: ${error.message}`);
+        } else {
+          console.log("An unknown error has occured");
+        }
+      }
+    };
 
-    {
-      (setEventName(""),
-        setStartDate(""),
-        setStartTime(""),
-        setEndDate(""),
-        setEndTime(""),
-        setAllDay(false),
-        setEventLocation(""),
-        setEventOrganizer(""),
-        setEventNotes(""),
-        setEventUrl(""));
-    }
+    await postEvent(newEventItem);
   }
 
   return (
