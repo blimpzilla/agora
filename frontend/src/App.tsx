@@ -11,7 +11,6 @@ function App() {
   const [eventItems, setEventItems] = useState<AgoraEvent[]>([]);
 
   useEffect(() => {
-    console.log("useEffect now running");
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:3000/api/events");

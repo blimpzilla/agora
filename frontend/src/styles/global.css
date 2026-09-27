@@ -65,8 +65,9 @@ h2 {
 }
 
 .subheading {
+  align-self: stretch;
   color: #666;
-  font-size: 1rem;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 175%;

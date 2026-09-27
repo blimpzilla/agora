@@ -5,6 +5,7 @@ import "./EventsTable.css";
 
 type EventsTableProps = {
   eventList: AgoraEvent[];
+  onEventClick: (id: number) => void;
 };
 
 const features = tableFeatures({});
@@ -22,15 +23,15 @@ const columns: ColumnDef<typeof features, AgoraEvent>[] = [
     header: "Date",
     cell: (info) => info.getValue<string>(),
   },
-  // {
-  //   id: "location",
-  //   accessorFn: (row) => `${row.city}, ${row.country}`,
-  //   header: "Location",
-  //   cell: (info) => info.getValue<string>(),
-  // },
+  {
+    id: "location",
+    accessorFn: (row) => row.eventLocation,
+    header: "Location",
+    cell: (info) => info.getValue<string>(),
+  },
 ];
 
-function EventsTable({ eventList }: EventsTableProps) {
+function EventsTable({ eventList, onEventClick }: EventsTableProps) {
   const table = useTable({
     features,
     columns,
@@ -57,7 +58,7 @@ function EventsTable({ eventList }: EventsTableProps) {
 
           <tbody>
             {rows.map((row) => (
-              <tr key={row.id}>
+              <tr key={row.id} onClick={() => onEventClick(row.original.id)}>
                 {row.getAllCells().map((cell) => (
                   <td key={cell.id}>
                     <FlexRender cell={cell}></FlexRender>

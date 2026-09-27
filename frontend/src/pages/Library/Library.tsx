@@ -1,7 +1,9 @@
 import Header from "@/components/Header/Header";
 import EventsTable from "@/components/Table/EventsTable";
+import EventDetailsPanel from "@/components/EventDetailsPanel/EventDetailsPanel";
 import "./Library.css";
 import type { AgoraEvent } from "@/types/AgoraEvent";
+import { useState } from "react";
 
 type LibraryProps = {
   eventList: AgoraEvent[];
@@ -48,6 +50,7 @@ function EmptyEventList({ onCreate }: EmptyEventListProps) {
 }
 
 function Library({ eventList, onCreate }: LibraryProps) {
+  const [selectedEventID, setSelectedEventID] = useState<number | null>(null);
   return (
     <>
       <div className="page-container">
@@ -60,7 +63,18 @@ function Library({ eventList, onCreate }: LibraryProps) {
         {eventList.length === 0 ? (
           <EmptyEventList onCreate={onCreate} />
         ) : (
-          <EventsTable eventList={eventList} />
+          <>
+            <EventsTable
+              eventList={eventList}
+              onEventClick={setSelectedEventID}
+            />
+            {selectedEventID !== null && (
+              <EventDetailsPanel
+                selectedEventID={selectedEventID}
+                setSelectedEventID={setSelectedEventID}
+              />
+            )}
+          </>
         )}
       </div>
     </>

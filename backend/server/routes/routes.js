@@ -72,4 +72,24 @@ router.post("/api/events", async (req, res) => {
   }
 });
 
+// GET-by-ID
+router.get("/api/events/:id", async (req, res) => {
+  try {
+    const events = await read("./server/data/data.json");
+    const id = Number(req.params.id);
+    const event = events.find((event) => event.id === id);
+    if (!event) {
+      res.status(404).json({
+        error: "Event not found",
+      });
+    }
+    res.json(event);
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    res.json({
+      error: "Failed to retrieve event, try again",
+    });
+  }
+});
+
 module.exports = router;
