@@ -12,6 +12,7 @@
     "Helvetica Neue",
     sans-serif;
   line-height: 175%; /* 28px */
+  font-size: 1em;
 }
 .panel-overlay {
   position: fixed;
@@ -30,7 +31,7 @@
   display: flex;
   width: 720px;
   height: 100dvh;
-  padding: 56px 48px;
+  padding: 48px 44px;
   flex-direction: column;
   align-items: flex-start;
   gap: 36px;
@@ -48,25 +49,6 @@
   align-self: stretch;
 }
 
-h1 {
-  align-self: stretch;
-  color: #000;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-/* .subheading {
-  align-self: stretch;
-  color: #666;
-  font-family: Inter;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 175%;
-} */
-
 .panel-body {
   display: flex;
   flex-direction: column;
@@ -80,6 +62,16 @@ h1 {
   align-items: flex-start;
   gap: 10px;
   align-self: stretch;
+}
+
+.panel-title {
+  align-self: stretch;
+  margin: 0;
+  color: #000;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .panel-label {
@@ -144,8 +136,8 @@ h1 {
 
 .btn-del {
   display: flex;
-  width: 150px;
-  height: 45px;
+  width: 125px;
+  height: 3rem;
   padding: 0 24px;
   justify-content: center;
   align-items: center;
@@ -165,8 +157,8 @@ h1 {
 
 .btn-panel-primary {
   display: flex;
-  width: 150px;
-  height: 45px;
+  width: 125px;
+  height: 3rem;
   padding: 0 24px;
   justify-content: center;
   align-items: center;
@@ -175,9 +167,7 @@ h1 {
   border: 1px solid #212121;
   background: #000;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-
   color: #eee;
-  font-size: 16px;
   font-style: normal;
   font-weight: 510;
 }

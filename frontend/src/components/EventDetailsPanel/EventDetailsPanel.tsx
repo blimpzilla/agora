@@ -1,15 +1,18 @@
 import "./EventDetailsPanel.css";
+import { Trash, PenLine } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { AgoraEvent } from "@/types/AgoraEvent";
 
 type EventDetailsPanelProps = {
   selectedEventID: number;
   setSelectedEventID: (id: number | null) => void;
+  refreshTrigger: () => void;
 };
 
-export default function EventDetailsPanel({
+function EventDetailsPanel({
   selectedEventID,
   setSelectedEventID,
+  refreshTrigger,
 }: EventDetailsPanelProps) {
   const [data, setData] = useState<AgoraEvent | null>(null);
 
@@ -32,11 +35,38 @@ export default function EventDetailsPanel({
     getById();
   }, [selectedEventID]);
 
+  async function handleDelete() {
+    if (selectedEventID === null) return;
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/events/${selectedEventID}`,
+        {
+          method: "DELETE",
+        },
+      );
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          `Status ${response.status}: ${errorData.error || "Failed to delete event"}`,
+        );
+      }
+      setSelectedEventID(null);
+      refreshTrigger();
+      return await response.json();
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error(`Error: ${error.message}`);
+      } else {
+        console.log("An unknown error has occured");
+      }
+    }
+  }
+
   return (
     <div className="panel-overlay" onClick={() => setSelectedEventID(null)}>
       <div className="panel" onClick={(e) => e.stopPropagation()}>
         <div className="panel-header">
-          {data && <h1>{data.eventName}</h1>}
+          {data && <span className="panel-title">{data.eventName}</span>}
           {data && <span className="subheading">{data.eventOrganizer}</span>}
         </div>
 
@@ -73,12 +103,28 @@ export default function EventDetailsPanel({
           </div>
         </div>
         <div className="btn-container">
-          <button className="btn-del">
+          <button
+            className="btn-del"
+            onClick={() => {
+              if (
+                window.confirm("Are you sure you want to delete this event?")
+              ) {
+                handleDelete();
+              }
+            }}
+          >
+            <Trash size={16} />
             <span className="btn-del-label">Delete</span>
           </button>
-          <button className="btn-panel-primary"> Edit</button>
+          <button className="btn-panel-primary">
+            {" "}
+            <PenLine size={16} />
+            Edit
+          </button>
         </div>
       </div>
     </div>
   );
 }
+
+export default EventDetailsPanel;

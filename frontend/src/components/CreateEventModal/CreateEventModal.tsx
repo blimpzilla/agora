@@ -5,9 +5,14 @@ import type { AgoraEvent } from "@/types/AgoraEvent";
 type CreateEventModalProps = {
   onClose: () => void;
   onCreateEvent: (newEvent: AgoraEvent) => void;
+  refreshTrigger: () => void;
 };
 
-function CreateEventModal({ onClose, onCreateEvent }: CreateEventModalProps) {
+function CreateEventModal({
+  onClose,
+  onCreateEvent,
+  refreshTrigger,
+}: CreateEventModalProps) {
   const modalHeading = "Create Event";
   const modalSubheading = "You can edit in more detail later.";
 
@@ -21,8 +26,6 @@ function CreateEventModal({ onClose, onCreateEvent }: CreateEventModalProps) {
   const [eventOrganizer, setEventOrganizer] = useState("");
   const [eventNotes, setEventNotes] = useState("");
   const [eventUrl, setEventUrl] = useState("");
-
-  const [errors, setErrors] = useState<string[]>([]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -63,9 +66,9 @@ function CreateEventModal({ onClose, onCreateEvent }: CreateEventModalProps) {
             setEventOrganizer(""),
             setEventNotes(""),
             setEventUrl(""));
+          refreshTrigger();
         } else {
           const data = await response.json();
-          setErrors(data.errors);
           console.log(data.errors);
           return;
         }
@@ -157,7 +160,7 @@ function CreateEventModal({ onClose, onCreateEvent }: CreateEventModalProps) {
               id="event-location"
               name="eventLocation"
               type="text"
-              // onChange={(e) => setEventName(e.target.value)}
+              onChange={(e) => setEventLocation(e.target.value)}
             />
           </div>
 

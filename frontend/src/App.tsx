@@ -9,6 +9,7 @@ import Library from "./pages/Library/Library.tsx";
 function App() {
   const [isEventFormOpen, setIsEventFormOpen] = useState(false);
   const [eventItems, setEventItems] = useState<AgoraEvent[]>([]);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,11 +25,15 @@ function App() {
       }
     };
     fetchData();
-  }, []);
+  }, [refreshKey]);
 
   function createEvent(newEvent: AgoraEvent) {
     setEventItems([...eventItems, newEvent]);
   }
+
+  const refreshEvents = () => {
+    setRefreshKey((prev) => prev + 1);
+  };
 
   return (
     <div className="layout">
@@ -37,14 +42,19 @@ function App() {
       <main className="page-body">
         {isEventFormOpen && (
           <CreateEventModal
-            onClose={() => setIsEventFormOpen(false)}
+            onClose={() => {
+              setIsEventFormOpen(false);
+              refreshEvents();
+            }}
             onCreateEvent={createEvent}
+            refreshTrigger={refreshEvents}
           />
         )}
 
         <Library
           eventList={eventItems}
           onCreate={() => setIsEventFormOpen(!isEventFormOpen)}
+          refreshTrigger={refreshEvents}
         />
       </main>
     </div>

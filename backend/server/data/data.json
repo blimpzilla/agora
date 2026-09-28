@@ -13,16 +13,68 @@
     "eventUrl": "https://example.com/events/ottawa-tech-networking-night"
   },
   {
-    "id": 1790304974115,
-    "eventName": "Test 2",
-    "startDate": "2026-09-25",
-    "startTime": "",
-    "endDate": "",
-    "endTime": "",
+    "id": 17493,
+    "eventName": "React Developers Workshop",
+    "startDate": "2026-10-12",
+    "startTime": "13:00",
+    "endDate": "2026-10-12",
+    "endTime": "16:30",
     "allDay": false,
-    "eventLocation": "",
-    "eventOrganizer": "",
-    "eventNotes": "",
-    "eventUrl": ""
+    "eventLocation": "Algonquin College, Ottawa, Canada",
+    "eventOrganizer": "Ottawa Developer Community",
+    "eventNotes": "Hands-on workshop covering React, TypeScript, component architecture, and modern frontend development.",
+    "eventUrl": "https://example.com/events/react-developers-workshop"
+  },
+  {
+    "id": 17494,
+    "eventName": "Canadian Startup Summit",
+    "startDate": "2026-10-16",
+    "startTime": "09:00",
+    "endDate": "2026-10-17",
+    "endTime": "17:00",
+    "allDay": false,
+    "eventLocation": "Shaw Centre, Ottawa, Canada",
+    "eventOrganizer": "Canadian Startup Network",
+    "eventNotes": "Two-day entrepreneurship conference featuring startup pitches, investor panels, networking sessions, and technology demonstrations.",
+    "eventUrl": "https://example.com/events/canadian-startup-summit"
+  },
+  {
+    "id": 17495,
+    "eventName": "Fall Hackathon 2026",
+    "startDate": "2026-10-23",
+    "startTime": "17:00",
+    "endDate": "2026-10-25",
+    "endTime": "18:00",
+    "allDay": false,
+    "eventLocation": "University of Ottawa, Ottawa, Canada",
+    "eventOrganizer": "Ottawa Student Developers",
+    "eventNotes": "Weekend hackathon where student teams build innovative software projects, attend technical workshops, and compete for prizes.",
+    "eventUrl": "https://example.com/events/fall-hackathon-2026"
+  },
+  {
+    "id": 17496,
+    "eventName": "National Career Development Fair",
+    "startDate": "2026-11-04",
+    "startTime": "09:00",
+    "endDate": "2026-11-04",
+    "endTime": "17:00",
+    "allDay": true,
+    "eventLocation": "EY Centre, Ottawa, Canada",
+    "eventOrganizer": "Capital Career Association",
+    "eventNotes": "Career fair connecting students and recent graduates with employers offering internships, co-op placements, and full-time positions.",
+    "eventUrl": "https://example.com/events/national-career-development-fair"
+  },
+  {
+    "id": 174955,
+    "eventName": "Rolling Loud California 2027",
+    "startDate": "2027-12-10",
+    "startTime": "00:00",
+    "endDate": "2027-12-12",
+    "endTime": "23:59",
+    "allDay": true,
+    "eventLocation": "NOS Events Center, San Bernardino, California, USA",
+    "eventOrganizer": "Rolling Loud",
+    "eventNotes": "Rolling Loud California's 10-year anniversary. Three-day hip-hop music festival featuring live performances. Artist lineup to be announced.",
+    "eventUrl": "https://cali.rollingloud.com/"
   }
 ]

@@ -27,6 +27,7 @@ router.get("/api/events", async (req, res) => {
 router.post("/api/events", async (req, res) => {
   try {
     const newEvent = req.body;
+    console.log(newEvent);
     const events = await read("./server/data/data.json");
 
     // validation
@@ -40,17 +41,9 @@ router.post("/api/events", async (req, res) => {
       errors.push("An event with that name already exists");
     }
 
-    // start date in the past
-    const startDate = new Date(newEvent.startDate);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    startDate.setHours(0, 0, 0, 0);
-    if (startDate < today) {
-      errors.push("The event start date has already passed");
-    }
-
     // End date not before start date
     if (newEvent.endDate) {
+      const startDate = new Date(newEvent.startDate);
       const endDate = new Date(newEvent.endDate);
       if (startDate > endDate) {
         errors.push("End date cannot be before start date");
@@ -88,6 +81,27 @@ router.get("/api/events/:id", async (req, res) => {
     console.error(`Error: ${error.message}`);
     res.json({
       error: "Failed to retrieve event, try again",
+    });
+  }
+});
+
+// DELETE-by-ID
+router.delete("/api/events/:id", async (req, res) => {
+  // console.log(`Recieved DELETE request on id: ${id}`);
+  try {
+    const id = Number(req.params.id);
+    const events = await read("./server/data/data.json");
+    const index = events.findIndex((event) => event.id === id);
+    if (index === -1) {
+      return res.status(404).json({ error: "Event not found" });
+    }
+    const removed = events.splice(index, 1);
+    await write(events);
+    return res.status(200).json(removed[0]);
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    res.status(500).json({
+      error: "Internal server error",
     });
   }
 });

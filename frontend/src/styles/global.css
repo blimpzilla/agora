@@ -47,27 +47,27 @@ p {
 }
 
 h1 {
+  align-self: stretch;
+  margin: 0;
   color: #000;
   font-size: 2rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: normal;
-  margin: 0%;
 }
 
 h2 {
   color: #000;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   line-height: normal;
   margin: 0%;
 }
 
 .subheading {
-  align-self: stretch;
   color: #666;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 175%;
@@ -76,12 +76,12 @@ h2 {
 .primary-button {
   display: flex;
   height: 2.5rem;
+  width: 125px;
   padding: 4px 1.25rem;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
   background: #000;
-  border-radius: 10px;
+  border-radius: 999px;
   border: 1px solid #212121;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
   color: #eee;
@@ -93,12 +93,12 @@ h2 {
 .button-secondary {
   display: flex;
   height: 2.5rem;
+  width: 125px;
   padding: 4px 1.25rem;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 999px;
   border: 1px solid #ddd;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
   color: #000;

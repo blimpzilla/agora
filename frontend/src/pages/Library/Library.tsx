@@ -8,6 +8,7 @@ import { useState } from "react";
 type LibraryProps = {
   eventList: AgoraEvent[];
   onCreate: () => void;
+  refreshTrigger: () => void;
 };
 
 type EmptyEventListProps = {
@@ -49,7 +50,7 @@ function EmptyEventList({ onCreate }: EmptyEventListProps) {
   );
 }
 
-function Library({ eventList, onCreate }: LibraryProps) {
+function Library({ eventList, onCreate, refreshTrigger }: LibraryProps) {
   const [selectedEventID, setSelectedEventID] = useState<number | null>(null);
   return (
     <>
@@ -72,6 +73,7 @@ function Library({ eventList, onCreate }: LibraryProps) {
               <EventDetailsPanel
                 selectedEventID={selectedEventID}
                 setSelectedEventID={setSelectedEventID}
+                refreshTrigger={refreshTrigger}
               />
             )}
           </>
