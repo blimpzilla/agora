@@ -7,6 +7,7 @@ import Sidebar from "./components/Sidebar/Sidebar.tsx";
 import Library from "./pages/Library/Library.tsx";
 
 function App() {
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isEventFormOpen, setIsEventFormOpen] = useState(false);
   const [eventItems, setEventItems] = useState<AgoraEvent[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -36,27 +37,31 @@ function App() {
   };
 
   return (
-    <div className="layout">
-      <Sidebar onCreate={() => setIsEventFormOpen(!isEventFormOpen)} />
+    <div className="app">
+      <Sidebar
+        onCreateEvent={() => setIsEventFormOpen((prev) => !prev)}
+        sidebarState={isSidebarOpen}
+        onToggle={() => setSidebarOpen((prev) => !prev)}
+      />
 
-      <main className="page-body">
-        {isEventFormOpen && (
-          <CreateEventModal
-            onClose={() => {
-              setIsEventFormOpen(false);
-              refreshEvents();
-            }}
-            onCreateEvent={createEvent}
-            refreshTrigger={refreshEvents}
-          />
-        )}
-
+      <main className="content">
         <Library
           eventList={eventItems}
-          onCreate={() => setIsEventFormOpen(!isEventFormOpen)}
+          onCreateEvent={() => setIsEventFormOpen((prev) => !prev)}
           refreshTrigger={refreshEvents}
         />
       </main>
+
+      {isEventFormOpen && (
+        <CreateEventModal
+          onClose={() => {
+            setIsEventFormOpen(false);
+            refreshEvents();
+          }}
+          onCreateEvent={createEvent}
+          refreshTrigger={refreshEvents}
+        />
+      )}
     </div>
   );
 }

@@ -7,12 +7,12 @@ import { useState } from "react";
 
 type LibraryProps = {
   eventList: AgoraEvent[];
-  onCreate: () => void;
+  onCreateEvent: () => void;
   refreshTrigger: () => void;
 };
 
 type EmptyEventListProps = {
-  onCreate: () => void;
+  onCreateEvent: () => void;
 };
 
 const pageHeadings = {
@@ -20,7 +20,7 @@ const pageHeadings = {
   subtitle: "Your events live here.",
 };
 
-function EmptyEventList({ onCreate }: EmptyEventListProps) {
+function EmptyEventList({ onCreateEvent }: EmptyEventListProps) {
   return (
     <div className="empty-event-list">
       <svg className="empty-event-list__border" aria-hidden="true">
@@ -43,26 +43,26 @@ function EmptyEventList({ onCreate }: EmptyEventListProps) {
         Create your first event to start building your library.
       </span>
 
-      <button className="button-secondary" onClick={onCreate}>
+      <button className="button-secondary" onClick={onCreateEvent}>
         Create event
       </button>
     </div>
   );
 }
 
-function Library({ eventList, onCreate, refreshTrigger }: LibraryProps) {
+function Library({ eventList, onCreateEvent, refreshTrigger }: LibraryProps) {
   const [selectedEventID, setSelectedEventID] = useState<number | null>(null);
   return (
     <>
-      <div className="page-container">
+      <div className="library">
         <Header
           title={pageHeadings.title}
           subtitle={pageHeadings.subtitle}
-          onCreate={onCreate}
+          onCreate={onCreateEvent}
         />
 
         {eventList.length === 0 ? (
-          <EmptyEventList onCreate={onCreate} />
+          <EmptyEventList onCreateEvent={onCreateEvent} />
         ) : (
           <>
             <EventsTable

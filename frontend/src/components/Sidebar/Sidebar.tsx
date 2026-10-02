@@ -8,59 +8,58 @@ import {
 } from "lucide-react";
 
 type SidebarProps = {
-  onCreate: () => void;
+  onCreateEvent: () => void;
+  sidebarState: boolean;
+  onToggle: () => void;
 };
 
 const accountName = "Blimpmeister";
 const accountImgSrc = "/IMG_1637.JPG";
-const wordMark = "/wordmark.svg";
+const logo = "/lettermark.svg";
 
-function Sidebar({ onCreate }: SidebarProps) {
+function Sidebar({ sidebarState, onToggle, onCreateEvent }: SidebarProps) {
   return (
-    <nav className="sidebar">
-      <div className="sidebar-header">
-        <img src={wordMark} alt="Project wordmark logo" height="20px" />
-
-        <div className="sidebar-toggle-button">
-          <PanelRightOpen />
-        </div>
-      </div>
-
-      <div className="sidebar-menu">
-        <button className="sidebar-menu-item" onClick={onCreate}>
-          <CalendarPlus className="sidebar-icon" />
-          <span className="sidebar-menu-item__label">Create New Event</span>
-        </button>
-
-        <button className="sidebar-menu-item --active">
-          <LibraryBig className="sidebar-icon" />
-          <span className="sidebar-menu-item__label">Library</span>
-        </button>
-      </div>
-
-      <div className="sidebar-footer">
-        <div className="sidebar-footer-menu">
-          <button className="sidebar-menu-item">
-            <BadgeQuestionMark className="sidebar-icon" />
-            <span className="sidebar-menu-item__label">Help</span>
-          </button>
-
-          <button className="sidebar-menu-item">
-            <Settings className="sidebar-icon" />
-            <span className="sidebar-menu-item__label">Preferences</span>
+    <aside className={`sidebar ${sidebarState ? "open" : "collapsed"}`}>
+      <header className="sidebar-header">
+        <div className="sidebar-logo-toggle-wrapper">
+          <a className="sidebar-logo">
+            <img src={logo} />
+          </a>
+          <button className={"sidebar-toggle-icon"} onClick={onToggle}>
+            <PanelRightOpen />
           </button>
         </div>
+      </header>
 
-        <button className="sidebar-account-item">
-          <img
-            className="sidebar-account-avatar"
-            src={accountImgSrc}
-            alt={`${accountName}'s avatar`}
-          />
-          <span className="sidebar-menu-item__label">{accountName}</span>
+      <nav className="sidebar-nav">
+        <button className="sidebar-item" onClick={onCreateEvent}>
+          <CalendarPlus className="sidebar-item-icon" />
+          <span className="sidebar-item-label">Create new event</span>
         </button>
-      </div>
-    </nav>
+
+        <a className="sidebar-item">
+          <LibraryBig className="sidebar-item-icon" />
+          <span className="sidebar-item-label">Library</span>
+        </a>
+      </nav>
+
+      <footer className="sidebar-footer">
+        <nav className="sidebar-footer-nav">
+          <a className="sidebar-item">
+            <BadgeQuestionMark className="sidebar-item-icon" />
+            <span className="sidebar-item-label">Help</span>
+          </a>
+          <a className="sidebar-item">
+            <Settings className="sidebar-item-icon" />
+            <span className="sidebar-item-label">Preferences</span>
+          </a>
+        </nav>
+        <a className="sidebar-account">
+          <img className="sidebar-account-avatar" src={accountImgSrc} />
+          <span className="sidebar-item-label">{accountName}</span>
+        </a>
+      </footer>
+    </aside>
   );
 }
 
