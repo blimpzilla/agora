@@ -1,6 +1,6 @@
 import "./CreateEventModal.css";
 import { useState } from "react";
-import type { AgoraEvent } from "@/types/AgoraEvent";
+import type { AgoraEvent, NewAgoraEvent } from "@/types/AgoraEvent";
 
 type CreateEventModalProps = {
   onClose: () => void;
@@ -30,8 +30,7 @@ function CreateEventModal({
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const newEventItem: AgoraEvent = {
-      id: Date.now(),
+    const newEventItem: NewAgoraEvent = {
       eventName: eventName,
       startDate: startDate,
       startTime: startTime,
@@ -44,7 +43,8 @@ function CreateEventModal({
       eventUrl: eventUrl,
     };
 
-    const postEvent = async (newEventItem: AgoraEvent) => {
+    const postEvent = async (newEventItem: NewAgoraEvent) => {
+      console.log(newEventItem);
       try {
         const response = await fetch("http://localhost:3000/api/events", {
           method: "POST",
@@ -54,7 +54,8 @@ function CreateEventModal({
           body: JSON.stringify(newEventItem),
         });
         if (response.ok) {
-          onCreateEvent(newEventItem);
+          const savedEvent: AgoraEvent = await response.json();
+          onCreateEvent(savedEvent);
           onClose();
           (setEventName(""),
             setStartDate(""),

@@ -51,7 +51,7 @@ function EmptyEventList({ onCreateEvent }: EmptyEventListProps) {
 }
 
 function Library({ eventList, onCreateEvent, refreshTrigger }: LibraryProps) {
-  const [selectedEventID, setSelectedEventID] = useState<number | null>(null);
+  const [selectedEventID, setSelectedEventID] = useState<string | null>(null);
   return (
     <>
       <div className="library">

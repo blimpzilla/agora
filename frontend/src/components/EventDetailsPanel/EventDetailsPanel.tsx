@@ -1,11 +1,12 @@
 import "./EventDetailsPanel.css";
-import { Trash, PenLine } from "lucide-react";
+import { Trash } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { AgoraEvent } from "@/types/AgoraEvent";
+import { formatEventDate, formatEventTime } from "@/utilities/formatEventDate";
 
 type EventDetailsPanelProps = {
-  selectedEventID: number;
-  setSelectedEventID: (id: number | null) => void;
+  selectedEventID: string;
+  setSelectedEventID: (id: string | null) => void;
   refreshTrigger: () => void;
 };
 
@@ -73,17 +74,27 @@ function EventDetailsPanel({
         <div className="panel-body">
           <div className="panel-field">
             <span className="panel-label">Starts</span>
-            {data && <span className="panel-value-sm">{data.startDate}</span>}
-            {data && <span className="panel-value-sm">{data.startTime}</span>}
+            {data && (
+              <span className="panel-value">
+                {formatEventDate(data.startDate, true)}
+                {!data.allDay && ` · ${formatEventTime(data.startTime)}`}
+              </span>
+            )}
           </div>
           <div className="panel-field">
             <span className="panel-label">Ends</span>
-            {data && <span className="panel-value-sm">{data.endDate}</span>}
-            {data && <span className="panel-value-sm">{data.endTime}</span>}
+            {data && (
+              <span className="panel-value">
+                {formatEventDate(data.endDate, true)}
+                {!data.allDay && ` · ${formatEventTime(data.endTime)}`}
+              </span>
+            )}
           </div>
           <div className="panel-field">
             <span className="panel-label">All-day</span>
-            {data && <input className="all-day" type="checkbox" />}
+            {data && (
+              <span className="panel-value">{data.allDay ? "Yes" : "No"}</span>
+            )}
           </div>
           <div className="panel-field">
             <span className="panel-label">Location</span>
@@ -116,11 +127,11 @@ function EventDetailsPanel({
             <Trash size={16} />
             <span className="btn-del-label">Delete</span>
           </button>
-          <button className="btn-panel-primary">
+          {/* <button className="btn-panel-primary">
             {" "}
             <PenLine size={16} />
             Edit
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

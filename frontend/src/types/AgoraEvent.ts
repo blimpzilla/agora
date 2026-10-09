@@ -1,5 +1,5 @@
 export interface AgoraEvent {
-  id: number;
+  _id: string;
   eventName: string;
   startDate: string;
   startTime: string;

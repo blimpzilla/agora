@@ -1,11 +1,12 @@
 import type { AgoraEvent } from "@/types/AgoraEvent";
+import { formatEventDate } from "@/utilities/formatEventDate";
 import type { ColumnDef } from "@tanstack/react-table";
 import { useTable, tableFeatures, FlexRender } from "@tanstack/react-table";
 import "./EventsTable.css";
 
 type EventsTableProps = {
   eventList: AgoraEvent[];
-  onEventClick: (id: number) => void;
+  onEventClick: (id: string) => void;
 };
 
 const features = tableFeatures({});
@@ -21,7 +22,7 @@ const columns: ColumnDef<typeof features, AgoraEvent>[] = [
     id: "date",
     accessorFn: (row) => row.startDate,
     header: "Date",
-    cell: (info) => info.getValue<string>(),
+    cell: (info) => formatEventDate(info.getValue<string>()),
   },
   {
     id: "location",
@@ -58,7 +59,7 @@ function EventsTable({ eventList, onEventClick }: EventsTableProps) {
 
           <tbody>
             {rows.map((row) => (
-              <tr key={row.id} onClick={() => onEventClick(row.original.id)}>
+              <tr key={row.id} onClick={() => onEventClick(row.original._id)}>
                 {row.getAllCells().map((cell) => (
                   <td key={cell.id}>
                     <FlexRender cell={cell}></FlexRender>

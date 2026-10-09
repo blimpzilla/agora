@@ -19,8 +19,13 @@ function App() {
         if (!response.ok) {
           throw `Error status: ${response.status}`;
         }
-        const data = await response.json();
-        setEventItems(data);
+        const data: AgoraEvent[] = await response.json();
+        setEventItems(
+          data.map((event) => ({
+            ...event,
+            id: event._id,
+          })),
+        );
       } catch (error) {
         console.error(`Error: ${error}`);
       }
@@ -29,7 +34,7 @@ function App() {
   }, [refreshKey]);
 
   function createEvent(newEvent: AgoraEvent) {
-    setEventItems([...eventItems, newEvent]);
+    setEventItems((prev) => [...prev, newEvent]);
   }
 
   const refreshEvents = () => {
